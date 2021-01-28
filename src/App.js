@@ -16,6 +16,7 @@ import ProductList from "./components/ProductList";
 import { ThemeProvider } from "styled-components";
 // Data
 import products from "./products";
+import { Route, Switch } from "react-router";
 
 const theme = {
   light: {
@@ -63,19 +64,38 @@ function App() {
         selectProduct={selectProduct}
       />
     ) : (
-      <ProductList
-        products={_products}
-        deleteProduct={deleteProduct}
-        selectProduct={selectProduct}
-      />
+      <Route path="/products">
+        <ProductList
+          products={_products}
+          deleteProduct={deleteProduct}
+          selectProduct={selectProduct}
+        />
+      </Route>
     );
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
-      <Home />
-      {setView()}
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/products">
+          <ProductList
+            products={_products}
+            deleteProduct={deleteProduct}
+            selectProduct={selectProduct}
+          />
+        </Route>
+        <Route path="/productdetail">
+          <ProductDetail
+            product={product}
+            deleteProduct={deleteProduct}
+            selectProduct={selectProduct}
+          />
+        </Route>
+      </Switch>
     </ThemeProvider>
   );
 }
