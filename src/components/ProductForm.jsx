@@ -14,6 +14,7 @@ export default function ProductForm() {
     name: "",
     description: "",
     price: "",
+    image:""
   });
 
   const handleChange = (event) =>
@@ -72,6 +73,18 @@ export default function ProductForm() {
             type="number"
             name="price"
             value={product.price}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="btn btn-outline-info">Image</span>
+          </div>
+          <input
+            className="form-control"
+            type="text"
+            name="image"
+            value={product.image}
             onChange={handleChange}
           />
         </div>
