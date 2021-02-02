@@ -11,8 +11,11 @@ const NavBar = (props) => {
       </LogoStyle>
 
       <div className="navbar-nav ml-auto">
-        <LinkStyle to="/products" className="nav-item">
+        <LinkStyle to="/products" className="nav-item mx-2">
           Products
+        </LinkStyle>
+        <LinkStyle to="/products/add" className="nav-item mx-2">
+          Add
         </LinkStyle>
         <ThemeButton className="nav-item" onClick={props.toggleTheme}>
           {props.currentTheme === "light" ? "Dark" : "Light"} Mode

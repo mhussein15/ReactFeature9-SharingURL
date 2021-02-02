@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar";
 // Components
 import ProductDetail from "./components/ProductDetail";
 import ProductList from "./components/ProductList";
+import ProductForm from "./components/ProductForm";
 import { ThemeProvider } from "styled-components";
 // Data
 import products from "./products";
@@ -45,6 +46,9 @@ function App() {
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/products/add">
+          <ProductForm />
+        </Route>
         <Route exact path="/products/:productSlug">
           <ProductDetail />
         </Route>
